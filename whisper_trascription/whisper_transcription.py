@@ -4,7 +4,7 @@ import whisper
 print()
 print()
 print()
-youtube_video_url = input("Ingrese el enlace del video de YouTube: ")
+youtube_video_url = input("Ingrese el enlace del video de YouTube: ----> ")
 download_path = os.path.abspath("output_file_folder")
 whisper_model = whisper.load_model("base")
 video_youtube_name = YouTube(youtube_video_url).title
@@ -17,8 +17,7 @@ def download_youtube_video(url, folder):
         print("Descarga finalizada",folder)
     except Exception as errorYoutube:
         print(f'Ha ocurrido un error al descargar el video: {errorYoutube}')
-print()
-print()
+
 print()
 # descargar video
 download_youtube_video(youtube_video_url, download_path)
@@ -26,10 +25,6 @@ download_youtube_video(youtube_video_url, download_path)
 
 audio_file_path = os.path.join(download_path, video_youtube_name + '.mp4')
 print()
-print()
-print()
-
-
 
 def audio_transcribe_whisper(file_path, file_name):
     try:
@@ -53,10 +48,11 @@ def create_file_text_transcription(transcrition, file_path, file_name):
     except Exception as errorCreateFile:
         print(f'An exception occurred ----- >        , {errorCreateFile}')
 
-#video_youtube_transcribe = audio_transcribe_whisper(download_path, video_youtube_name)
+video_youtube_transcribe = audio_transcribe_whisper(download_path, video_youtube_name)
 
-#create_file_text_transcription(video_youtube_transcribe, download_path, video_youtube_name)
+create_file_text_transcription(video_youtube_transcribe, download_path, video_youtube_name)
 
-print()
+
+
 print()
 print()
