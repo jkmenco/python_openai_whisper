@@ -48,6 +48,8 @@ def create_file_text_transcription(transcrition, file_path, file_name):
     except Exception as errorCreateFile:
         print(f'An exception occurred ----- >        , {errorCreateFile}')
 
+print("Iniciando la Transcripción... ")
+
 video_youtube_transcribe = audio_transcribe_whisper(download_path, video_youtube_name)
 
 create_file_text_transcription(video_youtube_transcribe, download_path, video_youtube_name)
